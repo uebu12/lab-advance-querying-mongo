@@ -16,8 +16,8 @@ db.companies.find(
 ```javascript
 db.companies
   .find({ number_of_employees: { $gt: 5000 } })
-  .limit(20)
-  .sort({ number_of_employees: 1 });
+  .sort({ number_of_employees: 1 })
+  .limit(20);
 ```
 
 ### 3. All the companies founded between 2000 and 2005, both years included. Retrieve only the `name` and `founded_year` fields.
@@ -48,8 +48,8 @@ db.companies
       { founded_year: { $lt: 2005 } },
     ],
   })
-  .limit(10)
-  .sort({ number_of_employees: 1 });
+  .sort({ number_of_employees: 1 })
+  .limit(10);
 ```
 
 ### 6. All the companies that don't include the `partners` field.
@@ -82,7 +82,7 @@ db.companies.find({ ipo: { $type: 3 } }).sort({ "ipo.valuation_amount": -1 });
 ### 10. Retrieve the 10 companies with most employees, order by the `number of employees`
 
 ```javascript
-db.companies.find(undefined).limit(10).sort({ number_of_employees: -1 });
+db.companies.find(undefined).sort({ number_of_employees: -1 }).limit(10);
 ```
 
 ### 11. All the companies founded on the second semester of the year. Limit your search to 1000 companies.
@@ -125,8 +125,8 @@ undefined,
 ```javascript
 db.companies
   .find({ founded_day: { $gte: 1, $lte: 7 } })
-  .limit(10)
-  .sort({ "acquisition.price_amount": -1 });
+  .sort({ "acquisition.price_amount": -1 })
+  .limit(10);
 ```
 
 ### 16. All the companies on the 'web' `category` that have more than 4000 employees. Sort them by the amount of employees in ascending order.
